@@ -29,5 +29,11 @@
         {
             return $"Nome: {Nome}, Profissão: R${Profissao}";
         }
+
+        public override bool Equals(object obj)
+        {
+            Cliente outroCliente = obj as Cliente;
+            return this.CPF == outroCliente.CPF;
+        }
     }
 }
