@@ -115,7 +115,16 @@ namespace ByteBank.Modelos.Entidades
 
         public override string ToString()
         {
-            return $"Nome: {Titular.Nome}, Acc: {Agencia}";
+            return $"Numero: {Numero}, Acc: {Agencia}";
+        }
+
+        public override bool Equals(object obj)
+        {
+            ContaCorrente outraConta = obj as ContaCorrente;
+
+            if(outraConta == null) return false;
+
+            return Numero == outraConta.Numero && Agencia == outraConta.Agencia;
         }
     }
 }
