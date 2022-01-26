@@ -6,7 +6,7 @@ namespace ByteBank.Modelos.Entidades
     ///<summary>
     ///Define uma Conta Corrente do Banco ByteBank
     ///</summary>
-    public class ContaCorrente : IDisposable
+    public class ContaCorrente : IDisposable, IComparable
     {
         public Cliente Titular { get; set; }
         public int Numero { get;  }
@@ -125,6 +125,25 @@ namespace ByteBank.Modelos.Entidades
             if(outraConta == null) return false;
 
             return Numero == outraConta.Numero && Agencia == outraConta.Agencia;
+        }
+
+        public int CompareTo(object obj)
+        {
+            // Retornar negativo quando a instância precede o obj
+            // Retornar zero quando nossa instância e obj forem equivalentes;
+            // Retornar positivo diferente de zero quando a precedência for de obj;
+            ContaCorrente outraConta = obj as ContaCorrente;
+
+            if(outraConta == null)
+                return -1;
+
+            if (Numero < outraConta.Numero)
+                return -1;
+
+            if (Numero == outraConta.Numero)
+                return 0;
+
+            return 1;
         }
     }
 }
