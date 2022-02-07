@@ -12,7 +12,10 @@ namespace Bytebank.ImportacaoExportacao
             //FileStreamRead();
             //StreamReader();
             //FileStreamWrite();
-            StreamWriter();
+            //StreamWriter();
+            //BinaryWriter();
+            //BinaryReader();
+            //ConsoleInput();
         }
 
     }
