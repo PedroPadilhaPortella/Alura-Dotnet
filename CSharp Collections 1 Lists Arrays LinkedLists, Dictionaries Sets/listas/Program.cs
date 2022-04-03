@@ -52,14 +52,37 @@
             pessoas.Sort((pessoa, other) => pessoa.idade.CompareTo(other.idade));
 
             Print<Pessoa>(pessoas);
+
+
+            // Lista de Objetos com ReadOnly
+            Aula aula1 = new Aula("Estatistica", 30);
+            Aula aula2 = new Aula("Banco de Dados SQL", 50);
+            Aula aula3 = new Aula("Python", 60);
+
+            Curso curso1 = new Curso("Big Data", "Nelio Alves");
+            curso1.Adiciona(aula1);
+            curso1.Adiciona(aula2);
+            curso1.Adiciona(aula3);
+            Print<Aula>(curso1.Aulas);
+
+            // Ordenando as aulas
+            List<Aula> aulasCopiadas = new List<Aula>(curso1.Aulas);
+            aulasCopiadas.Sort();
+            Print<Aula>(aulasCopiadas);
+
+            // Total de horas do Curso
+            Console.WriteLine($"Total de horas: {curso1.TempoTotal}");
+            System.Console.WriteLine();
+            
+            System.Console.WriteLine(curso1);
         }
 
         // Metodo Print
-        static void Print<T>(List<T> dados)
+        static void Print<T>(IList<T> dados)
         {
-            dados.ForEach(item => {
+            foreach(var item in dados) {
                 Console.Write($"{item}, ");
-            });
+            };
             Console.WriteLine();
         }
     }

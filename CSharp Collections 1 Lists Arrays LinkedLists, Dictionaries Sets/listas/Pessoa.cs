@@ -1,4 +1,5 @@
-namespace listas {
+namespace listas 
+{
     public class Pessoa : IComparable
     {
         public string nome;
