@@ -10,6 +10,7 @@ namespace sets
         public IList<Aula> Aulas { get => new ReadOnlyCollection<Aula>(aulas); }
         private ISet<Aluno> alunos = new HashSet<Aluno>();
         public IList<Aluno> Alunos { get => new ReadOnlyCollection<Aluno>(alunos.ToList()); }
+        private IDictionary<int, Aluno> dicionarioAlunos = new Dictionary<int, Aluno>();
 
         private string nome;
         public string Nome { get => nome;  set => nome = value; }
@@ -34,11 +35,24 @@ namespace sets
         public void Matricular(Aluno aluno)
         {
             this.alunos.Add(aluno);
+            this.dicionarioAlunos.Add(aluno.Matricula, aluno);
+        }
+
+        public void SubstituirAluno(Aluno aluno)
+        {
+            this.dicionarioAlunos[aluno.Matricula] = aluno;
         }
 
         public bool isRegistered(Aluno aluno)
         {
             return this.alunos.Contains(aluno);
+        }
+
+        internal Aluno GetAluno(int Matricula)
+        {
+            Aluno aluno = null;
+            this.dicionarioAlunos.TryGetValue(Matricula, out aluno);
+            return aluno;
         }
 
         public override string ToString()

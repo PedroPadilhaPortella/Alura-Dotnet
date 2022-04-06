@@ -25,11 +25,16 @@
             curso1.Matricular(aluno1);
             curso1.Matricular(aluno2);
             curso1.Matricular(aluno3);
+            curso1.SubstituirAluno(aluno3);
 
             Console.WriteLine(curso1);
 
             Console.WriteLine($"O Aluno {aluno1.Nome} está matriculado no curso {curso1.Nome}? {curso1.isRegistered(aluno1)}");
             Console.WriteLine(aluno1.Equals(aluno4));
+
+            Console.WriteLine($"O aluno de RA 12345 está matriculado? {curso1.GetAluno(12345)}");
+            Console.WriteLine($"O aluno de RA 3253 está matriculado? {curso1.GetAluno(3253)}");
+            // IDictionary<int, Aluno> alunos = new Dictionary<int, Aluno>();
 
 
             // SortedSet
@@ -44,7 +49,7 @@
             // Esse foreach vai mostrar os nomes na seguinte ordem: Alberto, Ettore, Hugo, Osni e por fim Victor
             foreach(string nome in devedores)
             {
-                MessageBox.Show(nome);
+                Console.WriteLine(nome);
             }
         }
     }
