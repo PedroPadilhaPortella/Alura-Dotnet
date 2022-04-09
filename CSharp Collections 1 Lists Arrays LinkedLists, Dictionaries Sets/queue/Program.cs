@@ -10,14 +10,13 @@
             pedagio.Enqueue("Van");
             pedagio.Enqueue("Carro");
 
-            foreach (var veiculo in pedagio)
-            {
-                Console.WriteLine(veiculo);
-            }
-            
+            Console.WriteLine("Parado: " + pedagio.Peek());
             Console.WriteLine("Passou: " + pedagio.Dequeue());
+            Console.WriteLine("Parado: " + pedagio.Peek());
+            Console.WriteLine("Passou: " + pedagio.Dequeue());     
+            Console.WriteLine("Parado: " + pedagio.Peek());
             Console.WriteLine("Passou: " + pedagio.Dequeue());
-            Console.WriteLine("Passou: " + pedagio.Dequeue());
+            Console.WriteLine("Parado: " + pedagio.Peek());
             Console.WriteLine("Passou: " + pedagio.Dequeue());
         }
     }
